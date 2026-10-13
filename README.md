@@ -134,12 +134,12 @@ q - salir del juego
 
 ## Revisar si se gano
 
-La funcion `verificar_ganado` busca si todavia existe alguna caja normal, o sea,
-un `1`, dentro de cualquier fila.
+La funcion `verificar_ganado` cuenta las cajas que ya estan en metas, o sea,
+los `5`, y las compara con el total de cajas que tenia el tablero al comenzar.
+Por eso puede haber una o muchas cajas representadas con `5`: la partida solo
+termina cuando todas las cajas estan sobre una meta.
 
-Si ya no encuentra ningun `1`, quiere decir que todas las cajas estan en metas,
-porque las cajas que estan en metas son `5`. En ese momento imprime el mensaje
-de felicitacion y devuelve `True`.
+En ese momento imprime el mensaje de felicitacion y devuelve `True`.
 
 Cuando devuelve `True`, el `break` termina el `while` de `jugar` y se acaba la
 partida.

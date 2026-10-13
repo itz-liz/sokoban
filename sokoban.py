@@ -22,6 +22,12 @@ class Sokoban:
             [ 2,2,2,2,2,2,2,2 ]
             ]
 
+        self.total_cajas = sum(
+            celda in (1, 5)
+            for fila in self.mapa
+            for celda in fila
+        )
+
         #Definir la psoicion inicial del personaje 
         self.personaje_fila= 4
         self.personaje_columna= 2
@@ -655,14 +661,20 @@ class Sokoban:
             #Revisa si todas las cajas estan dentro de las metas
             if self.verificar_ganado():
                 #Termina el juego cuando se completan todas las metas
+                self.imprimirMapa() # imprime el mapa final
+                print("felicidades juego terminado")
                 break
 
     #Verifica si ya no quedan cajas fuera de una meta
     def verificar_ganado(self) -> bool:
-        #Si no queda ninguna caja normal, el juego fue completado
-        if not any(1 in fila for fila in self.mapa):
-            #Muestra el mensaje de victoria
-            print("felicidades juego terminado")
+        cajas_en_meta = sum(
+            celda == 5
+            for fila in self.mapa
+            for celda in fila
+        )
+
+        #El juego se completa cuando todas las cajas son cajas sobre metas
+        if cajas_en_meta == self.total_cajas:
             return True
         #Indica que el juego todavia no ha terminado
         return False
