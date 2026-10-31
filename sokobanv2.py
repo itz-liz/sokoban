@@ -1,7 +1,9 @@
+# sokobanv2.py implementa la versión manual de un solo nivel.
+# El usuario controla directamente al personaje con las teclas W, A, S y D.
 class Sokoban:
     # Esta tabla guarda el número de cada elemento del juego.
     elementos = {
-        # 8 representa al personaje.
+        # 8 representa al personaje en esta versión manual.
         "personaje": 8,
         # 1 represanta un camino.
         "camino": 1,
